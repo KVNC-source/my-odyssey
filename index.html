@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Solace · An Odyssey for Ica</title>
+  <meta name="description" content="Five letters from the long way home." />
+  <meta name="theme-color" content="#040914" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Solace" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- shared SVG defs (gradients, ship, sparkle) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-flap" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f8eed3" /><stop offset="1" stop-color="#e3cf9c" />
+      </linearGradient>
+      <linearGradient id="g-flap-in" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#cdb57a" /><stop offset="1" stop-color="#b59a5c" />
+      </linearGradient>
+      <linearGradient id="g-left" x1="0" y1="0" x2="1" y2="0.5">
+        <stop offset="0" stop-color="#f1e3bd" /><stop offset="1" stop-color="#e2cd98" />
+      </linearGradient>
+      <linearGradient id="g-right" x1="1" y1="0" x2="0" y2="0.5">
+        <stop offset="0" stop-color="#f1e3bd" /><stop offset="1" stop-color="#e2cd98" />
+      </linearGradient>
+      <linearGradient id="g-bottom" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e8d6a6" /><stop offset="1" stop-color="#f4e7c4" />
+      </linearGradient>
+      <linearGradient id="g-sail" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#d9674f" /><stop offset="1" stop-color="#8f2a1f" />
+      </linearGradient>
+
+      <symbol id="star4" viewBox="-20 -20 40 40">
+        <polygon points="0,-20 4,-4 20,0 4,4 0,20 -4,4 -20,0 -4,-4" />
+      </symbol>
+
+      <symbol id="ship-sym" viewBox="0 0 320 200">
+        <g stroke="#c9a14a" stroke-width="2.4" stroke-linecap="round" opacity=".9">
+          <line x1="70" y1="132" x2="48" y2="170" /><line x1="105" y1="136" x2="86" y2="176" />
+          <line x1="140" y1="138" x2="124" y2="180" /><line x1="180" y1="138" x2="196" y2="180" />
+          <line x1="215" y1="136" x2="234" y2="176" /><line x1="250" y1="132" x2="272" y2="170" />
+        </g>
+        <path d="M14 112 C40 150 92 168 160 168 C228 168 280 150 306 104 C298 110 290 112 282 112 L38 112 C30 112 22 112 14 112 Z" fill="#0b1830" stroke="#e6c26e" stroke-width="2.4" stroke-linejoin="round" />
+        <path d="M30 126 C70 148 120 154 160 154 C200 154 250 148 290 124" fill="none" stroke="#e6c26e" stroke-width="1.6" opacity=".7" />
+        <path d="M306 104 C316 92 314 78 304 70" fill="none" stroke="#e6c26e" stroke-width="3" stroke-linecap="round" />
+        <path d="M14 112 C4 100 6 86 16 78" fill="none" stroke="#e6c26e" stroke-width="3" stroke-linecap="round" />
+        <circle cx="288" cy="124" r="5.5" fill="#fff6dc" stroke="#e6c26e" stroke-width="1.6" />
+        <circle cx="289" cy="124" r="2" fill="#0b1830" />
+        <rect x="157" y="26" width="6" height="90" fill="#c9a14a" />
+        <rect x="116" y="32" width="88" height="4" rx="2" fill="#e6c26e" />
+        <path d="M124 36 C146 46 174 46 196 36 L198 104 C174 114 146 114 122 104 Z" fill="url(#g-sail)" stroke="#e6c26e" stroke-width="1.6" />
+        <polygon transform="translate(160 72) scale(.42)" fill="#ffe3a1" opacity=".95"
+          points="0,-48 7.27,-17.55 33.94,-33.94 17.55,-7.27 48,0 17.55,7.27 33.94,33.94 7.27,17.55 0,48 -7.27,17.55 -33.94,33.94 -17.55,7.27 -48,0 -17.55,-7.27 -33.94,-33.94 -7.27,-17.55" />
+        <circle cx="160" cy="22" r="12" fill="#ffe9a8" opacity=".18" />
+        <circle cx="160" cy="22" r="5" fill="#ffe9a8" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div id="cursor" class="cursor" aria-hidden="true"><i></i></div>
+  <div id="progress" class="progress" aria-hidden="true"><i class="progress__bar" id="progress-bar"></i><i class="progress__ship" id="progress-ship"></i></div>
+
+  <!-- ============ GATE ============ -->
+  <div id="gate" class="gate" role="dialog" aria-modal="true" aria-label="Welcome to Solace">
+    <div class="gate__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="gate__inner">
+      <svg class="gate__star" viewBox="-50 -50 100 100" aria-hidden="true">
+        <polygon fill="#e6c26e" points="0,-48 7.27,-17.55 33.94,-33.94 17.55,-7.27 48,0 17.55,7.27 33.94,33.94 7.27,17.55 0,48 -7.27,17.55 -33.94,33.94 -17.55,7.27 -48,0 -17.55,-7.27 -33.94,-33.94 -7.27,-17.55" />
+      </svg>
+      <p class="eyebrow">For Ica · from Keefa</p>
+      <p class="gate__title">Solace</p>
+      <p class="gate__line">An odyssey in five letters.</p>
+      <button id="set-sail" class="btn" type="button"><span>Set sail</span></button>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="moon-wrap" data-depth="10"><div class="moon" id="moon"></div></div>
+        <div class="glow"></div>
+        <svg class="islands" viewBox="0 0 1440 140" preserveAspectRatio="none">
+          <path fill="rgba(4,10,24,.92)" d="M0 140 L0 104 C40 96 70 70 118 80 C150 50 196 58 220 88 C262 78 290 100 330 112 C360 118 380 128 400 140 Z M980 140 C1010 112 1040 96 1086 100 C1120 70 1176 74 1210 104 C1250 96 1300 100 1340 120 C1380 112 1410 120 1440 128 L1440 140 Z" />
+        </svg>
+        <div class="wave wave--back"><svg viewBox="0 0 2400 160" preserveAspectRatio="none"><path class="fill" d="M0 60 C150 20 450 20 600 60 S1050 100 1200 60 S1650 20 1800 60 S2250 100 2400 60 V160 H0 Z" /><path class="crest" d="M0 60 C150 20 450 20 600 60 S1050 100 1200 60 S1650 20 1800 60 S2250 100 2400 60" /></svg></div>
+        <div class="hero__ship" data-depth="18"><div class="ship-in"><div class="ship"><svg viewBox="0 0 320 200"><use href="#ship-sym" /></svg></div></div></div>
+        <div class="wave wave--mid"><svg viewBox="0 0 2400 160" preserveAspectRatio="none"><path class="fill" d="M0 60 C150 20 450 20 600 60 S1050 100 1200 60 S1650 20 1800 60 S2250 100 2400 60 V160 H0 Z" /><path class="crest" d="M0 60 C150 20 450 20 600 60 S1050 100 1200 60 S1650 20 1800 60 S2250 100 2400 60" /></svg></div>
+        <div class="wave wave--front"><svg viewBox="0 0 2400 160" preserveAspectRatio="none"><path class="fill" d="M0 60 C150 20 450 20 600 60 S1050 100 1200 60 S1650 20 1800 60 S2250 100 2400 60 V160 H0 Z" /><path class="crest" d="M0 60 C150 20 450 20 600 60 S1050 100 1200 60 S1650 20 1800 60 S2250 100 2400 60" /></svg></div>
+      </div>
+
+      <div class="hero__content" id="hero-content">
+        <p class="eyebrow intro" style="--d:.2s">Nostos · the journey home</p>
+        <h1 class="title" aria-label="Solace">
+          <span style="--i:0" aria-hidden="true">S</span><span style="--i:1" aria-hidden="true">O</span><span style="--i:2" aria-hidden="true">L</span><span style="--i:3" aria-hidden="true">A</span><span style="--i:4" aria-hidden="true">C</span><span style="--i:5" aria-hidden="true">E</span>
+        </h1>
+        <p class="hero__lead intro" style="--d:1.5s">Five letters from the long way home.</p>
+        <p class="hero__for intro" style="--d:1.9s">for Ica</p>
+      </div>
+
+      <a href="#voyage" class="cue intro" style="--d:2.6s"><span>Follow the voyage</span><i></i></a>
+    </section>
+
+    <!-- ============ VOYAGE ============ -->
+    <section id="voyage" class="voyage">
+      <div class="meander" aria-hidden="true"></div>
+      <header class="section-head reveal">
+        <p class="eyebrow">The voyage</p>
+        <h2>Five letters, one for each part of the trip</h2>
+        <p class="count"><span id="count">0</span> of 5 opened</p>
+      </header>
+
+      <div id="stops" class="stops">
+        <svg id="route" class="route" aria-hidden="true">
+          <path id="route-base" class="route__base" />
+          <path id="route-sail" class="route__sail" />
+        </svg>
+        <div id="sailship" class="sailship" aria-hidden="true"><svg viewBox="0 0 320 200"><use href="#ship-sym" /></svg></div>
+        <ol id="list" class="stops__list" aria-label="The five letters"></ol>
+      </div>
+    </section>
+
+    <!-- ============ NINTH STAR ============ -->
+    <section id="ninth" class="ninth">
+      <div class="meander" aria-hidden="true"></div>
+      <header class="section-head reveal">
+        <p class="eyebrow">The Solace sky</p>
+        <h2>Eight stars so far</h2>
+        <p class="lede">One for each month. There's room for a ninth.</p>
+      </header>
+      <div class="sky-wrap reveal" id="sky-wrap">
+        <svg id="constellation" class="constellation" role="group" aria-label="Eight lit stars and a ninth waiting"></svg>
+      </div>
+      <p id="ninth-caption" class="caption" aria-live="polite">Tap the empty one.</p>
+    </section>
+
+    <footer class="footer">
+      <div class="meander" aria-hidden="true"></div>
+      <p class="footer__made">Made by Keefa, for Ica.</p>
+      <a class="footer__top" href="#hero">Back to the harbor</a>
+    </footer>
+  </main>
+
+  <!-- ============ READER ============ -->
+  <div id="reader" class="reader" hidden role="dialog" aria-modal="true" aria-labelledby="paper-title">
+    <div class="reader__backdrop" data-close></div>
+    <button class="reader__close" id="reader-close" type="button" aria-label="Close letter" data-close><span></span><span></span></button>
+    <div class="reader__stage" id="stage">
+      <div class="reader__env" id="reader-env"></div>
+      <p class="reader__hint" id="reader-hint">tap to skip</p>
+      <article class="paper" id="paper" tabindex="-1">
+        <div id="paper-inner"></div>
+      </article>
+      <nav class="reader__nav" aria-label="Letters">
+        <button id="prev" class="navbtn" type="button"><span aria-hidden="true">&larr;</span> Previous</button>
+        <ol class="dots" id="dots" aria-hidden="true"></ol>
+        <button id="next" class="navbtn" type="button"><span id="next-label">Next</span> <span aria-hidden="true">&rarr;</span></button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============ KEYWORD PROMPT ============ -->
+  <div id="lock" class="lock" hidden>
+    <div class="lock__backdrop" data-lock-close></div>
+    <form id="lock-form" class="lock__card" role="dialog" aria-modal="true" aria-labelledby="lock-title" autocomplete="off">
+      <svg class="lock__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3" fill="none" stroke="#e6c26e" stroke-width="1.8" stroke-linecap="round"/><rect x="4.5" y="11" width="15" height="10.5" rx="2.4" fill="none" stroke="#e6c26e" stroke-width="1.8"/><circle cx="12" cy="16.2" r="1.5" fill="#e6c26e"/></svg>
+      <p id="lock-num" class="eyebrow">Letter</p>
+      <h2 id="lock-title" class="lock__title">This one is sealed</h2>
+      <p id="lock-hint" class="lock__hint"></p>
+      <input id="lock-input" class="lock__input" type="text" name="keyword" aria-label="Keyword" placeholder="the keyword" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go" data-lpignore="true" data-1p-ignore />
+      <p id="lock-msg" class="lock__msg" role="status" aria-live="polite"></p>
+      <div class="lock__row">
+        <button type="button" class="navbtn" data-lock-close>Not yet</button>
+        <button type="submit" id="lock-go" class="navbtn navbtn--gold">Unseal</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="js/letters.enc.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
